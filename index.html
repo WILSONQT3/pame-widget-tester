@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAME Widget Tester — wilson-ecaat</title>
+    <title>PAME Widget Tester Pro — wilson-ecaat</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,9 +11,9 @@
         <header class="header">
             <div class="logo">
                 <span class="logo-icon">🧠</span>
-                <h1>PAME Widget Tester</h1>
+                <h1>PAME Widget Tester Pro</h1>
             </div>
-            <p class="subtitle">Test harness for <code>wilson-ecaat</code> clone widget</p>
+            <p class="subtitle">Advanced test harness for <code>wilson-ecaat</code> clone widget</p>
         </header>
 
         <main class="main">
@@ -41,8 +41,12 @@
                         <span class="value">dark</span>
                     </div>
                     <div class="status-row">
-                        <span class="label">Label</span>
-                        <span class="value">💬 Chat with me</span>
+                        <span class="label">Widget API</span>
+                        <span class="value" id="apiStatus">⏳ Detecting...</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Chat Input Found</span>
+                        <span class="value" id="inputStatus">⏳ Checking...</span>
                     </div>
                 </div>
             </section>
@@ -54,18 +58,37 @@
                     <span class="badge badge-secondary">Interactive</span>
                 </div>
                 <div class="card-body">
-                    <button class="btn btn-primary" id="openWidgetBtn" disabled>
-                        💬 Open Widget
-                    </button>
-                    <button class="btn btn-secondary" id="reloadWidgetBtn" disabled>
-                        🔄 Reload Widget
-                    </button>
-                    <button class="btn btn-danger" id="destroyWidgetBtn" disabled>
-                        🗑️ Destroy Widget
-                    </button>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="openWidgetBtn" disabled>
+                            💬 Open Widget
+                        </button>
+                        <button class="btn btn-secondary" id="reloadWidgetBtn" disabled>
+                            🔄 Reload Widget
+                        </button>
+                        <button class="btn btn-danger" id="destroyWidgetBtn" disabled>
+                            🗑️ Destroy Widget
+                        </button>
+                    </div>
+                    
+                    <!-- Manual Message Send Test -->
+                    <div class="test-section">
+                        <h3 class="section-title">📤 Send Test Message</h3>
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="testMessageInput" 
+                                placeholder="Type a test message..."
+                                disabled
+                            />
+                            <button class="btn btn-send" id="sendTestBtn" disabled>
+                                Send
+                            </button>
+                        </div>
+                        <p class="hint">Opens widget and attempts to send message via API or DOM injection</p>
+                    </div>
                 </div>
                 <div class="card-footer">
-                    <p class="hint">💡 Click <strong>Open Widget</strong> to manually trigger the chat bubble.</p>
+                    <p class="hint">💡 Click <strong>Open Widget</strong> to manually trigger the chat bubble, then try sending a message.</p>
                 </div>
             </section>
 
@@ -74,12 +97,36 @@
                 <div class="card-header">
                     <h2>Event Log</h2>
                     <span class="badge badge-info">Live</span>
-                    <button class="btn btn-sm btn-ghost" id="clearLogBtn">Clear</button>
+                    <div class="header-actions">
+                        <button class="btn btn-sm btn-ghost" id="clearLogBtn">Clear</button>
+                        <button class="btn btn-sm btn-ghost" id="exportLogBtn">Export</button>
+                    </div>
                 </div>
                 <div class="card-body log-container" id="logContainer">
                     <div class="log-entry log-info">
                         <span class="log-time">--:--:--</span>
                         <span class="log-msg">App initialized. Waiting for widget...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Widget Inspector Card -->
+            <section class="card inspector-card">
+                <div class="card-header">
+                    <h2>Widget Inspector</h2>
+                    <span class="badge badge-config">DOM</span>
+                </div>
+                <div class="card-body">
+                    <div class="inspector-controls">
+                        <button class="btn btn-sm btn-secondary" id="scanDOMBtn">
+                            🔍 Scan DOM for Widget Elements
+                        </button>
+                        <button class="btn btn-sm btn-secondary" id="injectMessageBtn">
+                            📝 Inject Test Message into Chat Input
+                        </button>
+                    </div>
+                    <div class="inspector-results" id="inspectorResults">
+                        <p class="hint">Click "Scan DOM" to find widget elements</p>
                     </div>
                 </div>
             </section>
