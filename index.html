@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAME Widget Tester — wilson-ecaat</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <h1>PAME Widget Tester</h1>
+            </div>
+            <p class="subtitle">Test harness for <code>wilson-ecaat</code> clone widget</p>
+        </header>
+
+        <main class="main">
+            <!-- Widget Status Card -->
+            <section class="card status-card" id="statusCard">
+                <div class="card-header">
+                    <h2>Widget Status</h2>
+                    <span class="badge" id="statusBadge">Checking...</span>
+                </div>
+                <div class="card-body">
+                    <div class="status-row">
+                        <span class="label">Widget Script</span>
+                        <span class="value" id="scriptStatus">⏳ Loading...</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Clone Slug</span>
+                        <span class="value"><code>wilson-ecaat</code></span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Position</span>
+                        <span class="value">bottom-right</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Theme</span>
+                        <span class="value">dark</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Label</span>
+                        <span class="value">💬 Chat with me</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Controls Card -->
+            <section class="card controls-card">
+                <div class="card-header">
+                    <h2>Test Controls</h2>
+                    <span class="badge badge-secondary">Interactive</span>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary" id="openWidgetBtn" disabled>
+                        💬 Open Widget
+                    </button>
+                    <button class="btn btn-secondary" id="reloadWidgetBtn" disabled>
+                        🔄 Reload Widget
+                    </button>
+                    <button class="btn btn-danger" id="destroyWidgetBtn" disabled>
+                        🗑️ Destroy Widget
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <p class="hint">💡 Click <strong>Open Widget</strong> to manually trigger the chat bubble.</p>
+                </div>
+            </section>
+
+            <!-- Event Log Card -->
+            <section class="card log-card">
+                <div class="card-header">
+                    <h2>Event Log</h2>
+                    <span class="badge badge-info">Live</span>
+                    <button class="btn btn-sm btn-ghost" id="clearLogBtn">Clear</button>
+                </div>
+                <div class="card-body log-container" id="logContainer">
+                    <div class="log-entry log-info">
+                        <span class="log-time">--:--:--</span>
+                        <span class="log-msg">App initialized. Waiting for widget...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Card -->
+            <section class="card config-card">
+                <div class="card-header">
+                    <h2>Widget Configuration</h2>
+                    <span class="badge badge-config">Config</span>
+                </div>
+                <div class="card-body">
+                    <div class="config-block">
+                        <pre><code>&lt;script 
+    src="https://pame.cc/api/clone/widget.js" 
+    data-slug="wilson-ecaat" 
+    data-position="bottom-right" 
+    data-label="💬 Chat with me" 
+    data-delay="0" 
+    data-theme="dark" 
+    defer&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Built for <a href="https://pame.cc" target="_blank" rel="noopener">PAME</a> • Clone: <code>wilson-ecaat</code></p>
+        </footer>
+    </div>
+
+    <!-- PAME Widget Script -->
+    <script src="https://pame.cc/api/clone/widget.js" 
+            data-slug="wilson-ecaat" 
+            data-position="bottom-right" 
+            data-label="💬 Chat with me" 
+            data-delay="0" 
+            data-theme="dark" 
+            defer>
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
